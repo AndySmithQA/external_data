@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import ItemCard from './components/items';
+import itemsData from './itemsData.json';
 import './App.css';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        <h1>React Fruit Market</h1>
+        <div className="items-grid">
+          {itemsData.map((item) => (
+            <ItemCard 
+            key={item.id}
+            symbol={item.symbol}
+            name={item.name}
+            price={item.price}
+            />
+          ))}
+        </div>
+      </main>
     </div>
+  
   );
 }
 
